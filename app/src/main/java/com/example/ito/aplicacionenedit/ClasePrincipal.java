@@ -1,7 +1,8 @@
 package com.example.ito.aplicacionenedit;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -84,19 +85,33 @@ public class ClasePrincipal extends AppCompatActivity
         int id = item.getItemId();
 
         FragmentManager fragmentManager = getFragmentManager();
+        Fragment fragment2 = null;
         SupportMapFragment fragment = null;
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            fragment = new Ubicacion_fragment();
-        } else if (id == R.id.nav_slideshow) {
+        switch (item.getItemId()){
+            case R.id.nav_camera:
 
-        } else if (id == R.id.nav_manage) {
+                fragment = new Ubicacion_fragment();
+                break;
+            case R.id.nav_gallery:
 
-        } else if (id == R.id.nav_send) {
+                break;
+
+            case R.id.nav_slideshow:
+
+                break;
+
+            case R.id.nav_manage:
+
+                fragment2 = new Emergencias();
+                break;
+
+            case R.id.nav_send:
+
+                break;
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
